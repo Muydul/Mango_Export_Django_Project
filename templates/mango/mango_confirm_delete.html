@@ -1,0 +1,19 @@
+{% extends 'mango/base.html' %}
+
+{% block title %}Delete Mango{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Delete Mango</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="alert alert-warning">
+                <p>Are you sure you want to delete the mango variety <strong>{{ mango.variety }}</strong>?</p>
+            </div>
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'mango_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.btn {
+    border-radius: 5px;
+}

@@ -1,0 +1,37 @@
+{% extends 'mango/base.html' %}
+
+{% block title %}Mango List{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">Mango Export List</h2>
+
+        <!-- Search bar -->
+        <form method="GET" class="form-inline mb-3">
+            <input type="text" name="q" class="form-control mr-2" placeholder="Search by Order ID or Variety" value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <!-- Add Mango button -->
+        <a href="{% url 'mango_create' %}" class="btn btn-primary mb-3">Add New Mango</a>
+
+        <div class="row">
+            {% for mango in mangos %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ mango.variety }}</h5>
+                        <p class="card-text">{{ mango.description|slice:":100" }}...</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ mango.price }}</p>
+                        <p class="card-text"><strong>Order ID:</strong> {{ mango.order_id }}</p>
+                        <a href="{% url 'mango_update' mango.order_id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{% url 'mango_delete' mango.order_id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
